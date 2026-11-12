@@ -4,7 +4,7 @@
 
 Built for the **PayPal AI Hackathon 2026**. Runs on the **PayPal sandbox** — no real money moves.
 
-- **Live demo:** https://lovable.dev/preview/GAEKtsPQCu7mubUnwp1AKcZm9Zmjryzn
+- **Live demo:** https://mypaynudge.lovable.app/
 - **Demo video:** `<ADD YOUR YOUTUBE LINK>`
 
 ![Dashboard](docs/screenshots/dashboard.png)
