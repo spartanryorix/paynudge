@@ -1,0 +1,327 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * PayNudge design system — "night ledger".
+ * Midnight navy desk, warm ivory paper receipts, electric mint ink for money that moved.
+ */
+
+@theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-late: var(--late);
+  --color-late-foreground: var(--late-foreground);
+  --color-paper: var(--paper);
+  --color-paper-foreground: var(--paper-foreground);
+  --color-paper-muted: var(--paper-muted);
+  --color-paper-line: var(--paper-line);
+  --color-paper-shade: var(--paper-shade);
+  --color-ink: var(--ink);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-paper: var(--shadow-paper-value);
+  --shadow-glow: var(--shadow-glow-value);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* midnight navy */
+  --background: oklch(0.17 0.045 264);
+  --foreground: oklch(0.95 0.025 86);
+  --card: oklch(0.215 0.05 264);
+  --card-foreground: oklch(0.95 0.025 86);
+  --popover: oklch(0.215 0.05 264);
+  --popover-foreground: oklch(0.95 0.025 86);
+
+  /* electric mint */
+  --primary: oklch(0.88 0.185 163);
+  --primary-glow: oklch(0.93 0.14 170);
+  --primary-foreground: oklch(0.17 0.045 264);
+
+  --secondary: oklch(0.26 0.055 264);
+  --secondary-foreground: oklch(0.95 0.025 86);
+  --muted: oklch(0.24 0.05 264);
+  --muted-foreground: oklch(0.72 0.035 260);
+  --accent: oklch(0.88 0.185 163 / 12%);
+  --accent-foreground: oklch(0.92 0.15 165);
+
+  --destructive: oklch(0.7 0.17 32);
+  --destructive-foreground: oklch(0.17 0.045 264);
+  --late: oklch(0.72 0.16 38);
+  --late-foreground: oklch(0.17 0.045 264);
+
+  /* warm ivory paper */
+  --paper: oklch(0.955 0.03 86);
+  --paper-foreground: oklch(0.2 0.05 264);
+  --paper-muted: oklch(0.48 0.035 264);
+  --paper-line: oklch(0.86 0.035 84);
+  --paper-shade: oklch(0.92 0.035 84);
+  --ink: oklch(0.42 0.13 168);
+
+  --border: oklch(0.95 0.025 86 / 12%);
+  --input: oklch(0.95 0.025 86 / 18%);
+  --ring: oklch(0.88 0.185 163);
+
+  --shadow-paper-value: 0 1px 0 oklch(1 0 0 / 40%) inset, 0 30px 60px -30px oklch(0.05 0.03 264 / 80%),
+    0 8px 20px -10px oklch(0.05 0.03 264 / 60%);
+  --shadow-glow-value: 0 0 0 1px oklch(0.88 0.185 163 / 35%), 0 10px 40px -10px oklch(0.88 0.185 163 / 45%);
+  --gradient-desk: radial-gradient(1200px 600px at 85% -10%, oklch(0.88 0.185 163 / 9%), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, oklch(0.55 0.12 264 / 25%), transparent 60%);
+
+  --chart-1: oklch(0.88 0.185 163);
+  --chart-2: oklch(0.72 0.16 38);
+  --chart-3: oklch(0.95 0.025 86);
+  --chart-4: oklch(0.6 0.1 250);
+  --chart-5: oklch(0.7 0.12 200);
+  --sidebar: oklch(0.2 0.05 264);
+  --sidebar-foreground: oklch(0.95 0.025 86);
+  --sidebar-primary: oklch(0.88 0.185 163);
+  --sidebar-primary-foreground: oklch(0.17 0.045 264);
+  --sidebar-accent: oklch(0.26 0.055 264);
+  --sidebar-accent-foreground: oklch(0.95 0.025 86);
+  --sidebar-border: oklch(0.95 0.025 86 / 12%);
+  --sidebar-ring: oklch(0.88 0.185 163);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-background);
+    background-image: var(--gradient-desk);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+/* Faint grain over the navy desk */
+@utility grain {
+  position: relative;
+  &::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Ivory receipt paper with torn/perforated top and bottom edges */
+@utility paper {
+  background-color: var(--paper);
+  color: var(--paper-foreground);
+  box-shadow: var(--shadow-paper-value);
+  --tooth: 9px;
+  -webkit-mask:
+    radial-gradient(circle at 50% 0, transparent 5px, #000 5.5px) top / calc(var(--tooth) * 2) 51% repeat-x,
+    radial-gradient(circle at 50% 100%, transparent 5px, #000 5.5px) bottom / calc(var(--tooth) * 2) 51% repeat-x;
+  mask:
+    radial-gradient(circle at 50% 0, transparent 5px, #000 5.5px) top / calc(var(--tooth) * 2) 51% repeat-x,
+    radial-gradient(circle at 50% 100%, transparent 5px, #000 5.5px) bottom / calc(var(--tooth) * 2) 51% repeat-x;
+}
+
+/* Plain ivory sheet (no torn edges) */
+@utility sheet {
+  background-color: var(--paper);
+  color: var(--paper-foreground);
+  box-shadow: var(--shadow-paper-value);
+}
+
+/* Dashed tear line */
+@utility perforation {
+  background-image: linear-gradient(90deg, var(--paper-line) 50%, transparent 0);
+  background-size: 10px 1.5px;
+  background-repeat: repeat-x;
+  height: 1.5px;
+}
+
+/* Rubber stamp status marks */
+@utility stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  white-space: nowrap;
+}
+
+@utility stamp-paid {
+  color: var(--ink);
+  background: oklch(0.88 0.185 163 / 22%);
+}
+@utility stamp-waiting {
+  color: var(--paper-muted);
+  border-style: dashed;
+}
+@utility stamp-late {
+  color: oklch(0.55 0.17 35);
+  background: oklch(0.72 0.16 38 / 14%);
+}
+@utility stamp-cancelled {
+  color: var(--paper-muted);
+  text-decoration: line-through;
+}
+
+/* Giant stamp for invoice sheets */
+@utility stamp-xl {
+  font-size: 1.6rem;
+  padding: 0.4rem 1rem;
+  border-width: 3px;
+  transform: rotate(-9deg);
+  letter-spacing: 0.2em;
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+  letter-spacing: -0.02em;
+}
+
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility mint-underline {
+  background-image: linear-gradient(transparent 62%, oklch(0.88 0.185 163 / 55%) 62%, oklch(0.88 0.185 163 / 55%) 92%, transparent 92%);
+}
+
+@utility glow {
+  box-shadow: var(--shadow-glow-value);
+}
+
+/* Ruled-line field on paper */
+@utility paper-field {
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid var(--paper-line);
+  border-radius: 0;
+  color: var(--paper-foreground);
+  padding: 0.35rem 0.1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s, background-color 0.15s;
+  &::placeholder {
+    color: oklch(0.48 0.035 264 / 55%);
+  }
+  &:focus {
+    border-bottom-color: var(--ink);
+    background-color: oklch(0.88 0.185 163 / 10%);
+  }
+  &[data-missing="true"] {
+    border-bottom-color: oklch(0.62 0.17 35);
+    background-color: oklch(0.72 0.16 38 / 12%);
+  }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+
+@keyframes print-in {
+  from { clip-path: inset(0 0 100% 0); transform: translateY(-12px); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+@utility animate-print {
+  animation: print-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes stamp-in {
+  0% { transform: rotate(-9deg) scale(2.4); opacity: 0; }
+  60% { transform: rotate(-9deg) scale(0.92); opacity: 1; }
+  100% { transform: rotate(-9deg) scale(1); opacity: 1; }
+}
+@utility animate-stamp {
+  animation: stamp-in 0.45s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.88 0.185 163 / 60%); }
+  50% { box-shadow: 0 0 0 6px oklch(0.88 0.185 163 / 0%); }
+}
+@utility animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
